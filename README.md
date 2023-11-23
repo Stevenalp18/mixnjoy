@@ -20,6 +20,6 @@ I hope you all enjoy and use this app for your next mixing attempt!
 
 Leave some feedback and feel free to reach out. 
 
-If you would like to contact my you can reach me on my <a href="https://stevenalp.com">personal website</a>! 
+If you would like to contact my you can reach me on my <a href="https://stevenalp.com" target="_blank">personal website</a>! 
 
 Let's chat or work together? :)
