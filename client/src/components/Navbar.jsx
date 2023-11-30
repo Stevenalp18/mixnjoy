@@ -30,7 +30,7 @@ const Navbar = () => {
         {/* Regular Screen Size md+ */}
         <ul
           ref={dropdownNavbar}
-          className="nav-link-text text-xl flex lg:flex-row lg:gap-6 lg:flex lg:w-auto lg:relative absolute flex-col my-auto w-full lg:bg-transparent bg-white"
+          className="nav-link-text text-xl flex lg:flex-row lg:gap-6 lg:flex lg:w-auto lg:relative absolute flex-col my-auto w-full lg:bg-transparent bg-white hidden lg:flex"
         >
           <li className="border-b lg:border-0">
             <Link
