@@ -12,7 +12,7 @@ const Navbar = () => {
     <header className="lg:py-2 lg:px-5 text-blue-900 border-b">
       <nav className="lg:flex justify-between">
         <span className="text-2xl lg:span flex justify-between lg:py-4 lg:px-auto px-4 py-6 ">
-          <Link to="/" className="nav-logo-text">
+          <Link to="/" className="logo-text">
             <span className="">Mix n'joy</span>
             <span className="material-symbols-outlined my-auto text-rose-400 text-lg">
               local_bar
