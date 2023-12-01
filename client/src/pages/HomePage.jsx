@@ -13,7 +13,7 @@ const HomePage = () => {
           alt="Lots of drinks in bar"
           width={800}
           height={400}
-          className="mx-auto rounded-3xl px-2"
+          className="mx-auto py-12 md:py-5 px-2"
         />
         <p className="text-center text-xl px-4 logo-text">
           We have the recipes and the ingredients for your perfect drink!
