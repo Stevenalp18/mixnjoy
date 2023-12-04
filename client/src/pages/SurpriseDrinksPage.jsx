@@ -121,7 +121,7 @@ const SurpriseDrinksPage = () => {
               className="mx-auto"
             />
             <div className="px-8">
-              <div className="text-center pt-4">Alcoholic: {strAlcoholic}</div>
+              <div className="text-center pt-4">Includes Alcohol: {strAlcoholic === 'Alcoholic' ? 'Yes' : 'No'}</div>
               <div className="text-center pt-4">
                 Glass Container: {strGlass}
               </div>
