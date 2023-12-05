@@ -1,6 +1,9 @@
+import PopupModal from "../components/PopUpModal";
+
 const HomePage = () => {
   return (
     <section>
+      <PopupModal/>
       <div className="py-4 flex gap-3 flex-col">
         <h1 className="text-center mx-auto text-3xl text-blue-900 logo-text">
           Mix n'joy

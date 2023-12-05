@@ -20,12 +20,20 @@ const Footer = () => {
             Home
           </Link>
         </li>
-        <li className="border-b lg:border-0">
+        {/* <li className="border-b lg:border-0">
           <Link
             to="/drinks"
             className="hover:text-red-500 active:text-red-800 block w-full py-2 md:px-auto px-4"
           >
             Drinks
+          </Link>
+        </li> */}
+        <li className="border-b lg:border-0">
+          <Link
+            to="/whats-in-my-bar"
+            className="hover:text-red-500 active:text-red-800 block w-full py-2 md:px-auto px-4"
+          >
+            What's in my bar?
           </Link>
         </li>
         <li className="border-b lg:border-0">
@@ -34,14 +42,6 @@ const Footer = () => {
             className="hover:text-red-500 active:text-red-800 block w-full py-2 md:px-auto px-4"
           >
             Surprise Drinks
-          </Link>
-        </li>
-        <li className="border-b lg:border-0">
-          <Link
-            to="/whats-in-my-bar"
-            className="hover:text-red-500 active:text-red-800 block w-full py-2 md:px-auto px-4"
-          >
-            What's in my bar?
           </Link>
         </li>
         <li className="border-b lg:border-0">
