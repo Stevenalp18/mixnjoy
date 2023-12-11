@@ -3,7 +3,7 @@ export const drinksType = [
     id: 0,
     alcoholType: "Vodka",
     image: {
-      url: "./src/assets/drink_images/vodka.png",
+      url: "./assets/drink_images/vodka.png",
       alt: "",
       width: 100,
       height: 100,
@@ -13,7 +13,7 @@ export const drinksType = [
     id: 1,
     alcoholType: "Gin",
     image: {
-      url: "./src/assets/drink_images/gin.png",
+      url: "./assets/drink_images/gin.png",
       alt: "",
       width: 100,
       height: 100,
@@ -23,7 +23,7 @@ export const drinksType = [
     id: 2,
     alcoholType: "Rum",
     image: {
-      url: "./src/assets/drink_images/rum.png",
+      url: "./assets/drink_images/rum.png",
       alt: "",
       width: 100,
       height: 100,
@@ -33,7 +33,7 @@ export const drinksType = [
     id: 3,
     alcoholType: "Tequila",
     image: {
-      url: "./src/assets/drink_images/tequila.png",
+      url: "./assets/drink_images/tequila.png",
       alt: "",
       width: 100,
       height: 100,
@@ -43,7 +43,7 @@ export const drinksType = [
     id: 4,
     alcoholType: "Scotch",
     image: {
-      url: "./src/assets/drink_images/scotch.png",
+      url: "./assets/drink_images/scotch.png",
       alt: "",
       width: 100,
       height: 100,
@@ -53,7 +53,7 @@ export const drinksType = [
     id: 5,
     alcoholType: "Whiskey",
     image: {
-      url: "./src/assets/drink_images/whiskey.png",
+      url: "./assets/drink_images/whiskey.png",
       alt: "",
       width: 100,
       height: 100,
@@ -63,7 +63,7 @@ export const drinksType = [
     id: 6,
     alcoholType: "Brandy",
     image: {
-      url: "./src/assets/drink_images/brandy.png",
+      url: "./assets/drink_images/brandy.png",
       alt: "",
       width: 100,
       height: 100,
@@ -73,7 +73,7 @@ export const drinksType = [
     id: 7,
     alcoholType: "Beer",
     image: {
-      url: "./src/assets/drink_images/beer.png",
+      url: "./assets/drink_images/beer.png",
       alt: "",
       width: 100,
       height: 100,
@@ -83,7 +83,7 @@ export const drinksType = [
     id: 8,
     alcoholType: "Mezcal",
     image: {
-      url: "./src/assets/drink_images/mezcal.png",
+      url: "./assets/drink_images/mezcal.png",
       alt: "",
       width: 100,
       height: 100,
@@ -93,7 +93,7 @@ export const drinksType = [
     id: 9,
     alcoholType: "Wine",
     image: {
-      url: "./src/assets/drink_images/wine.png",
+      url: "./assets/drink_images/wine.png",
       alt: "",
       width: 100,
       height: 100,
@@ -103,7 +103,7 @@ export const drinksType = [
     id: 10,
     alcoholType: "Bourbon",
     image: {
-      url: "./src/assets/drink_images/bourbon.png",
+      url: "./assets/drink_images/bourbon.png",
       alt: "",
       width: 100,
       height: 100,
@@ -113,7 +113,7 @@ export const drinksType = [
     id: 11,
     alcoholType: "Triple Sec",
     image: {
-      url: "./src/assets/drink_images/triplesec.png",
+      url: "./assets/drink_images/triplesec.png",
       alt: "",
       width: 100,
       height: 100,
@@ -123,7 +123,7 @@ export const drinksType = [
     id: 12,
     alcoholType: "Cider",
     image: {
-      url: "./src/assets/drink_images/cider.png",
+      url: "./assets/drink_images/cider.png",
       alt: "",
       width: 100,
       height: 100,
@@ -133,7 +133,7 @@ export const drinksType = [
     id: 13,
     alcoholType: "Kahlúa",
     image: {
-      url: "./src/assets/drink_images/kahlua.png",
+      url: "./assets/drink_images/kahlua.png",
       alt: "",
       width: 100,
       height: 100,
@@ -143,7 +143,7 @@ export const drinksType = [
     id: 14,
     alcoholType: "Campari",
     image: {
-      url: "./src/assets/drink_images/campari.png",
+      url: "./assets/drink_images/campari.png",
       alt: "",
       width: 100,
       height: 100,
@@ -153,7 +153,7 @@ export const drinksType = [
     id: 15,
     alcoholType: "Frangelico",
     image: {
-      url: "./src/assets/drink_images/frangelico.png",
+      url: "./assets/drink_images/frangelico.png",
       alt: "",
       width: 100,
       height: 100,
@@ -163,7 +163,7 @@ export const drinksType = [
     id: 16,
     alcoholType: "Amaretto",
     image: {
-      url: "./src/assets/drink_images/amaretto.png",
+      url: "./assets/drink_images/amaretto.png",
       alt: "",
       width: 100,
       height: 100,
@@ -173,7 +173,7 @@ export const drinksType = [
     id: 17,
     alcoholType: "Sweet Vermouth",
     image: {
-      url: "./src/assets/drink_images/sweetvermouth.png",
+      url: "./assets/drink_images/sweetvermouth.png",
       alt: "",
       width: 100,
       height: 100,
@@ -183,7 +183,7 @@ export const drinksType = [
     id: 19,
     alcoholType: "Grand Marnier",
     image: {
-      url: "./src/assets/drink_images/grandmarnier.png",
+      url: "./assets/drink_images/grandmarnier.png",
       alt: "",
       width: 100,
       height: 100,
@@ -193,7 +193,7 @@ export const drinksType = [
     id: 20,
     alcoholType: "Baileys Irish Cream",
     image: {
-      url: "./src/assets/drink_images/baileysirishcream.png",
+      url: "./assets/drink_images/baileysirishcream.png",
       alt: "",
       width: 100,
       height: 100,
