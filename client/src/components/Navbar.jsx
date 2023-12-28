@@ -9,14 +9,14 @@ const Navbar = () => {
   };
 
   const handleLinkClick = () => {
-
-  }
+    dropdownNavbar.current.classList.add("hidden");
+  };
 
   return (
     <header className="lg:py-2 lg:px-5 text-blue-900 border-b">
       <nav className="lg:flex justify-between">
         <span className="text-2xl lg:span flex justify-between lg:py-4 lg:px-auto px-4 py-6 ">
-          <Link  to="/" className="logo-text">
+          <Link to="/" className="logo-text" onClick={() => handleLinkClick()}>
             <span className="">Mix n'joy</span>
             <span className="material-symbols-outlined my-auto text-rose-400 text-lg">
               local_bar
@@ -38,7 +38,7 @@ const Navbar = () => {
         >
           <li className="border-b lg:border-0">
             <Link
-            
+              onClick={() => handleLinkClick()}
               to="/"
               className="hover:text-red-500 active:text-red-800 block w-full py-2 lg:px-auto px-4"
             >
@@ -55,7 +55,7 @@ const Navbar = () => {
           </li> */}
           <li className="border-b lg:border-0">
             <Link
-            
+              onClick={() => handleLinkClick()}
               to="/whats-in-my-bar"
               className="hover:text-red-500 active:text-red-800 block w-full py-2 md:px-auto px-4"
             >
@@ -64,7 +64,7 @@ const Navbar = () => {
           </li>
           <li className="border-b lg:border-0">
             <Link
-            
+              onClick={() => handleLinkClick()}
               to="/surprise-drink"
               className="hover:text-red-500 active:text-red-800 block w-full py-2 md:px-auto px-4"
             >
@@ -73,19 +73,25 @@ const Navbar = () => {
           </li>
           <li className="border-b lg:border-0">
             <Link
-            
+              onClick={() => handleLinkClick()}
               to="/favorite-drinks"
               className="hover:text-red-500 active:text-red-800 block w-full py-2 md:px-auto px-4"
             >
               Favorite Drinks!
             </Link>
           </li>
-          <li className="border-b lg:border-0">
+          <li
+            className="border-b lg:border-0"
+            onClick={() => handleLinkClick()}
+          >
             <span className="material-symbols-outlined hover:text-red-500 active:text-red-800 hover:cursor-pointer block w-full py-2 md:px-auto px-4">
               search
             </span>
           </li>
-          <li className="border-b lg:border-0">
+          <li
+            className="border-b lg:border-0 "
+            onClick={() => handleLinkClick()}
+          >
             <span className="material-symbols-outlined hover:text-red-500 active:text-red-800 hover:cursor-pointer block w-full py-2 md:px-auto px-4">
               chat
             </span>
