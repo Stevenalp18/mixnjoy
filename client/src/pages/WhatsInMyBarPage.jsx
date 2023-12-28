@@ -1,11 +1,37 @@
-import { useEffect } from "react";
-import PopupModal from "../components/PopUpModal";
+import { useEffect, useState, useRef } from "react";
 import { drinksType } from "../local_data/drinksType";
+import RenderDrinksByIngredients from "../components/whatsinmybar/RenderDrinksByIngredients";
 
 const WhatsInMyBarPage = () => {
+  const drinksRef = useRef();
+  const [beverage, setBeverage] = useState("");
+  const [drinkData, setDrinkData] = useState(null);
+
   useEffect(() => {
-    console.log(drinksType);
-  }, []);
+    const fetchDrinksByIngredient = async () => {
+      try {
+        const response = await fetch(
+          `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${beverage}`
+        );
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (response.ok && data != null) {
+          setDrinkData(data);
+        }
+
+        return data;
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchDrinksByIngredient();
+  }, [beverage]);
 
   const renderDrinkTypes = () => {
     return drinksType.map((item) => {
@@ -21,6 +47,15 @@ const WhatsInMyBarPage = () => {
           </div>
           <div className="mx-auto">
             <img
+              onClick={() => {
+                setBeverage(alcoholType);
+
+                window.scrollTo({
+                  top: 0,
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }}
               className="hover:cursor-pointer mx-auto"
               src={url}
               alt={alt}
@@ -35,10 +70,18 @@ const WhatsInMyBarPage = () => {
 
   return (
     <section>
-      <PopupModal />
+      <RenderDrinksByIngredients
+        drinkData={drinkData}
+        beverage={beverage}
+        drinksRef={drinksRef}
+      />
+
       <div className="flex flex-col p-2 mx-4 my-8 lg:w-4/5 lg:mx-auto bg-amber-800 text-white rounded-2xl">
         <div className=" text-center text-500 w-full logo-text text-neutral-200 justify-center flex">
-          <div className="text-4xl lg:text-5xl w-full border-4 border-double rounded-xl border-amber-800 py-8 bg-amber-900">
+          <div
+            ref={drinksRef}
+            className="text-4xl lg:text-5xl w-full border-4 border-double rounded-xl border-amber-800 py-8 bg-amber-900"
+          >
             What's in my bar?
           </div>
         </div>

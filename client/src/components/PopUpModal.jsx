@@ -86,7 +86,7 @@ const PopupModal = () => {
     );
   };
 
-  return <>{activeModal ? Modal() : null}</>;
+  // return <>{activeModal ? Modal() : null}</>;
 };
 
 export default PopupModal;
