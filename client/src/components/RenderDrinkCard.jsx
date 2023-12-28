@@ -1,7 +1,35 @@
-const RenderDrinkCard = ({ drink, filteredIngredients, ingredientMeasure }) => {
+import React, { useEffect, useState } from "react";
+
+const RenderDrinkCard = ({ drink }) => {
+  const [ingredients, setIngredients] = useState(null);
+
+  useEffect(() => {
+    const getIngredients = () => {
+      if (drink != null) {
+        const arr = [];
+        const drinkObj = drink.drinks[0];
+
+        for (let i = 1; i < 16; i++) {
+          const ingredientKey = `strIngredient${i}`;
+          const measureKey = `strMeasure${i}`;
+
+          if (drinkObj[ingredientKey] !== null) {
+            arr.push({
+              ingredient: drinkObj[ingredientKey],
+              measure: drinkObj[measureKey] || "Add as you wish",
+            });
+          }
+        }
+
+        setIngredients(arr);
+      }
+    };
+
+    getIngredients();
+  }, [drink]);
+
   if (drink != null) {
     const { drinks } = drink;
-
     const {
       idDrink,
       strDrink,
@@ -33,18 +61,12 @@ const RenderDrinkCard = ({ drink, filteredIngredients, ingredientMeasure }) => {
             <div className="text-center pt-4">
               Ingredients:
               <ol>
-                {filteredIngredients &&
-                  filteredIngredients.map((ingredient, index) => {
-                    const measure = ingredientMeasure;
-                    return (
-                      <li key={index}>
-                        {index + 1}: {ingredient} -{" "}
-                        {measure[index] == "" || measure[index] == null
-                          ? "Add as you wish"
-                          : measure[index]}
-                      </li>
-                    );
-                  })}
+                {ingredients &&
+                  ingredients.map((item, index) => (
+                    <li key={index}>
+                      {index + 1}: {item.ingredient} - {item.measure}
+                    </li>
+                  ))}
               </ol>
             </div>
             <div className="text-center pt-4"></div>

@@ -1,4 +1,13 @@
+import SingleModalDrinkCard from "./SingleModalDrinkCard";
+import { useSelector, useDispatch } from "react-redux";
+import { setSingleIngredCardActive } from "../../features/singleIngredientModalSlice";
+import { useState } from "react";
+
 const RenderDrinksByIngredients = ({ drinkData, beverage, drinksRef }) => {
+  const singleIngredientCard = useSelector((state) => state.modal.value);
+  const dispatch = useDispatch();
+  const [drinkId, setDrinkId] = useState(null);
+
   const renderDrinks = () => {
     if (drinkData != null) {
       return (
@@ -29,6 +38,10 @@ const RenderDrinksByIngredients = ({ drinkData, beverage, drinksRef }) => {
           <div className="flex gap-2 flex-wrap p-2">
             {drinkData.drinks.map((item) => (
               <div
+                onClick={() => {
+                  setDrinkId(item.idDrink);
+                  dispatch(setSingleIngredCardActive(true));
+                }}
                 key={item.idDrink}
                 className="mx-auto text-center mb-2 md:mb-8 rounded-xl p-4 bg-neutral-200 hover:cursor-pointer w-full md:w-1/4 lg:w-1/5"
               >
@@ -50,11 +63,20 @@ const RenderDrinksByIngredients = ({ drinkData, beverage, drinksRef }) => {
         </div>
       );
     } else {
-      return "";
+      return null;
     }
   };
 
-  return renderDrinks();
+  return (
+    <>
+      {setSingleIngredCardActive() ? (
+        <SingleModalDrinkCard drinkId={drinkId} />
+      ) : (
+        "not true"
+      )}
+      {renderDrinks()}
+    </>
+  );
 };
 
 export default RenderDrinksByIngredients;
