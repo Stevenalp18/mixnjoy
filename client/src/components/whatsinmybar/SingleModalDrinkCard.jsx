@@ -53,7 +53,7 @@ const SingleModalDrinkCard = ({ drinkId }) => {
   };
 
   useEffect(() => {
-    if (window.innerWidth < 768) {
+    if (modalIsActive && window.innerWidth < 768) {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }, [modalIsActive]);

@@ -39,8 +39,12 @@ const RenderDrinksByIngredients = ({ drinkData, beverage, drinksRef }) => {
             {drinkData.drinks.map((item) => (
               <div
                 onClick={() => {
-                  setDrinkId(item.idDrink);
-                  dispatch(setSingleIngredCardActive(true));
+                  if (singleIngredientCard) {
+                    dispatch(setSingleIngredCardActive(false));
+                  } else {
+                    setDrinkId(item.idDrink);
+                    dispatch(setSingleIngredCardActive(true));
+                  }
                 }}
                 key={item.idDrink}
                 className="mx-auto text-center mb-2 md:mb-8 rounded-xl p-4 bg-neutral-200 hover:cursor-pointer w-full md:w-1/4 lg:w-1/5"
