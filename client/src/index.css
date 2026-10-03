@@ -1,17 +1,91 @@
-@import url("https://fonts.googleapis.com/css2?family=Courgette&family=Smooch+Sans:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Courgette&family=Inter:wght@400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: #f2f2f2;
+  @apply bg-ink-950 text-stone-200 font-sans antialiased;
+  background-image: radial-gradient(
+      60rem 30rem at 10% -10%,
+      rgba(244, 63, 94, 0.14),
+      transparent 60%
+    ),
+    radial-gradient(
+      50rem 30rem at 100% 0%,
+      rgba(245, 158, 11, 0.12),
+      transparent 60%
+    );
+  background-attachment: fixed;
 }
 
-.logo-text {
-  font-family: "Courgette", cursive;
+@layer components {
+  .logo-text {
+    @apply font-logo;
+  }
+  .glass {
+    @apply bg-white/[0.04] border border-white/10 backdrop-blur-md;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-semibold text-white
+      bg-gradient-to-r from-rose-500 to-amber-500 shadow-lg shadow-rose-900/30
+      transition duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-rose-700/40
+      active:translate-y-0 active:scale-95 disabled:opacity-60 disabled:pointer-events-none;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-semibold text-stone-200
+      border border-white/20 transition duration-300 hover:bg-white/10 hover:-translate-y-0.5 active:scale-95;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm text-stone-300;
+  }
 }
 
-.nav-link-text {
-  font-family: "Smooch Sans", sans-serif;
+/* ---------- motion ---------- */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes pop-in {
+  from { opacity: 0; transform: translateY(24px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes shimmer {
+  to { background-position: -200% 0; }
+}
+
+.animate-fade-up { animation: fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.animate-fade-in { animation: fade-in 0.4s ease both; }
+.animate-pop-in { animation: pop-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.animate-float { animation: float 5s ease-in-out infinite; }
+
+.skeleton {
+  background: linear-gradient(90deg, rgba(255,255,255,0.04) 25%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0.04) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

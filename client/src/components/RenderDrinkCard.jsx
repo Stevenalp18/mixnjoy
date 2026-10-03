@@ -1,82 +1,76 @@
-import React, { useEffect, useState } from "react";
+import { useMemo } from "react";
 
 const RenderDrinkCard = ({ drink }) => {
-  const [ingredients, setIngredients] = useState(null);
+  const drinkObj = drink?.drinks?.[0];
 
-  useEffect(() => {
-    const getIngredients = () => {
-      if (drink != null) {
-        const arr = [];
-        const drinkObj = drink.drinks[0];
-
-        for (let i = 1; i < 16; i++) {
-          const ingredientKey = `strIngredient${i}`;
-          const measureKey = `strMeasure${i}`;
-
-          if (drinkObj[ingredientKey] !== null) {
-            arr.push({
-              ingredient: drinkObj[ingredientKey],
-              measure: drinkObj[measureKey] || "Add as you wish",
-            });
-          }
-        }
-
-        setIngredients(arr);
+  const ingredients = useMemo(() => {
+    if (!drinkObj) return [];
+    const arr = [];
+    for (let i = 1; i < 16; i++) {
+      const ingredient = drinkObj[`strIngredient${i}`];
+      if (ingredient) {
+        arr.push({
+          ingredient,
+          measure: drinkObj[`strMeasure${i}`] || "Add as you wish",
+        });
       }
-    };
+    }
+    return arr;
+  }, [drinkObj]);
 
-    getIngredients();
-  }, [drink]);
-
-  if (drink != null) {
-    const { drinks } = drink;
-    const {
-      idDrink,
-      strDrink,
-      strDrinkThumb,
-      strAlcoholic,
-      strInstructions,
-      strGlass,
-    } = drinks[0];
-
-    return (
-      <div key={idDrink} className="px-8 mx-auto text-center mb-2 md:mb-8">
-        <div className="text-center py-4 text-xl logo-text">{strDrink}</div>
-        <div className="flex flex-col md:flex-row justify-evenly ">
-          <img
-            src={strDrinkThumb}
-            alt={`Image of the ${strDrink} ${strAlcoholic} drink`}
-            width={300}
-            height={400}
-            className="mx-auto"
-          />
-          <div className="px-8">
-            <div className="text-center pt-4">
-              Includes Alcohol: {strAlcoholic === "Alcoholic" ? "Yes" : "No"}
-            </div>
-            <div className="text-center pt-4">Glass Container: {strGlass}</div>
-            <div className="text-center pt-4">
-              Instructions: {strInstructions}
-            </div>
-            <div className="text-center pt-4">
-              Ingredients:
-              <ol>
-                {ingredients &&
-                  ingredients.map((item, index) => (
-                    <li key={index}>
-                      {index + 1}: {item.ingredient} - {item.measure}
-                    </li>
-                  ))}
-              </ol>
-            </div>
-            <div className="text-center pt-4"></div>
-          </div>
-        </div>
-      </div>
-    );
-  } else {
-    return <div>no drink data found</div>;
+  if (!drinkObj) {
+    return <div className="text-center text-stone-400 py-10">No drink data found</div>;
   }
+
+  const { strDrink, strDrinkThumb, strAlcoholic, strInstructions, strGlass } = drinkObj;
+
+  return (
+    <article className="grid md:grid-cols-[minmax(0,320px)_1fr] gap-6 md:gap-10 text-left animate-fade-in">
+      <div className="relative">
+        <div className="absolute -inset-3 rounded-3xl bg-gradient-to-tr from-rose-500/30 to-amber-400/20 blur-2xl" />
+        <img
+          src={strDrinkThumb}
+          alt={`Image of the ${strDrink} ${strAlcoholic} drink`}
+          className="relative w-full aspect-square object-cover rounded-2xl border border-white/10 shadow-xl"
+        />
+      </div>
+
+      <div>
+        <h2 className="logo-text text-3xl md:text-4xl text-white">{strDrink}</h2>
+        <div className="flex flex-wrap gap-2 mt-3">
+          <span className="chip">
+            <span className="material-symbols-outlined text-base text-amber-400">
+              {strAlcoholic === "Alcoholic" ? "wine_bar" : "local_cafe"}
+            </span>
+            {strAlcoholic === "Alcoholic" ? "Alcoholic" : "Non-alcoholic"}
+          </span>
+          {strGlass && (
+            <span className="chip">
+              <span className="material-symbols-outlined text-base text-rose-400">sports_bar</span>
+              {strGlass}
+            </span>
+          )}
+        </div>
+
+        <h3 className="mt-6 mb-2 text-xs uppercase tracking-widest text-stone-400">Ingredients</h3>
+        <ul className="grid sm:grid-cols-2 gap-2">
+          {ingredients.map((item, index) => (
+            <li
+              key={index}
+              style={{ animationDelay: `${index * 40}ms` }}
+              className="animate-fade-up flex justify-between gap-3 rounded-xl bg-white/5 border border-white/10 px-3 py-2 text-sm"
+            >
+              <span className="text-stone-100">{item.ingredient}</span>
+              <span className="text-stone-400 text-right">{item.measure}</span>
+            </li>
+          ))}
+        </ul>
+
+        <h3 className="mt-6 mb-2 text-xs uppercase tracking-widest text-stone-400">Instructions</h3>
+        <p className="text-stone-300 leading-relaxed">{strInstructions}</p>
+      </div>
+    </article>
+  );
 };
 
 export default RenderDrinkCard;

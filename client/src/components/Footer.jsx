@@ -1,75 +1,28 @@
 import { Link } from "react-router-dom";
 
-const Footer = () => {
-  return (
-    <footer className="py-4 my-auto bg-neutral-200 max-w-[1200px] mx-auto">
-      <span className="flex justify-center text-2xl">
-        <Link to="/" className="logo-text">
-          <span className="">Mix n'joy</span>
-          <span className="material-symbols-outlined my-auto text-rose-400 text-lg">
-            local_bar
-          </span>
-        </Link>
-      </span>
-      <ul className="flex flex-wrap justify-center">
-        <li className="border-b lg:border-0">
-          <Link
-            to="/"
-            className="hover:text-red-500 active:text-red-800 block w-full py-2 lg:px-auto px-4"
-          >
-            Home
-          </Link>
-        </li>
-        {/* <li className="border-b lg:border-0">
-          <Link
-            to="/drinks"
-            className="hover:text-red-500 active:text-red-800 block w-full py-2 md:px-auto px-4"
-          >
-            Drinks
-          </Link>
-        </li> */}
-        <li className="border-b lg:border-0">
-          <Link
-            to="/whats-in-my-bar"
-            className="hover:text-red-500 active:text-red-800 block w-full py-2 md:px-auto px-4"
-          >
-            What's in my bar?
-          </Link>
-        </li>
-        <li className="border-b lg:border-0">
-          <Link
-            to="/surprise-drink"
-            className="hover:text-red-500 active:text-red-800 block w-full py-2 md:px-auto px-4"
-          >
-            Surprise Drinks
-          </Link>
-        </li>
-        <li className="border-b lg:border-0">
-          <Link
-            to="/favorite-drinks"
-            className="hover:text-red-500 active:text-red-800 block w-full py-2 md:px-auto px-4"
-          >
-            Favorite Drinks!
-          </Link>
-        </li>
-        <li className="border-b lg:border-0">
-          <span className="material-symbols-outlined hover:text-red-500 active:text-red-800 hover:cursor-pointer block w-full py-2 md:px-auto px-4">
-            search
-          </span>
-        </li>
-        <li className="border-b lg:border-0">
-          <span className="material-symbols-outlined hover:text-red-500 active:text-red-800 hover:cursor-pointer block w-full py-2 md:px-auto px-4">
-            chat
-          </span>
-        </li>
+const Footer = () => (
+  <footer className="mt-20 border-t border-white/10">
+    <div className="max-w-6xl mx-auto px-4 py-10 flex flex-col items-center gap-4 text-sm text-stone-400">
+      <Link to="/" className="logo-text text-2xl text-stone-200 flex items-center gap-1">
+        Mix n'joy
+        <span className="material-symbols-outlined text-rose-400 text-xl">local_bar</span>
+      </Link>
+      <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+        <li><Link className="hover:text-white transition-colors" to="/">Home</Link></li>
+        <li><Link className="hover:text-white transition-colors" to="/whats-in-my-bar">What's in my bar?</Link></li>
+        <li><Link className="hover:text-white transition-colors" to="/surprise-drink">Surprise drinks</Link></li>
+        <li><Link className="hover:text-white transition-colors" to="/favorite-drinks">Favorites</Link></li>
       </ul>
-      <div className="text-center ">
-        <a href="https://stevenalp.com" target="_blank">
-          © 2023 Steven Perez, All Rights Reserved
-        </a>
-      </div>
-    </footer>
-  );
-};
+      <a
+        href="https://stevenalp.com"
+        target="_blank"
+        rel="noreferrer"
+        className="hover:text-white transition-colors"
+      >
+        © 2023 Steven Perez, All Rights Reserved
+      </a>
+    </div>
+  </footer>
+);
 
 export default Footer;
